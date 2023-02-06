@@ -4,23 +4,29 @@ const modal = document.querySelector(".show_modal");
 const content = document.querySelectorAll(".content");
 console.log(content);
 const close = document.querySelector(".cls_btn");
+const gif = document.querySelector(".gif");
 
 close.addEventListener("click", function () {
   modal.classList.add("hidden");
 
   card.forEach((x) => x.classList.remove("active"));
   content.forEach((x) => x.classList.add("hidden"));
+  //hide the gif
+  gif.classList.remove("hidden");
 });
 
 const showModalClick = function () {
   modal.classList.remove("hidden");
   console.log("button clicked");
+  //hide the gif
+  gif.classList.add("hidden");
 };
 
 card.forEach((x) => {
   x.addEventListener("click", function (e) {
     showModalClick();
-    //first we need to remove all the active classes
+
+    //we need to remove all the active classes
     card.forEach((x) => x.classList.remove("active"));
     //need to hide all content
     content.forEach((x) => x.classList.add("hidden"));
