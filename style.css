@@ -1,0 +1,218 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url(https://images.unsplash.com/photo-1602992708529-c9fdb12905c9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8ZnJvbnRlbmR8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.4;
+  z-index: -1;
+  /* added this line to make sure the elements are not overflowing */
+}
+
+/* nav bar */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+
+  background-color: rgba(0, 0, 0, 0.271);
+  overflow: hidden;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  margin: 0 16px;
+}
+.navbar-left:hover,
+.navbar-right:hover,
+.navbar-center:hover {
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+.navbar-left {
+  flex: 1;
+  text-align: left;
+}
+
+.navbar-center {
+  flex: 1;
+  text-align: center;
+}
+
+.navbar-right {
+  flex: 1;
+  text-align: right;
+}
+
+/* card */
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; /* set the height to cover full viewport */
+  margin-top: 16px;
+  /* overflow: hidden; */
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.5
+  ); /* added this line to make the background transparent */
+  padding: 16px;
+  box-shadow: 2px 2px 10px rgb(54, 54, 54);
+  transition: all 0.3s ease-in;
+  transform: scale(1);
+  cursor: pointer;
+  border-radius: 0;
+  transition: all 0.4 ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.1); /* added this line to scale up on hover */
+}
+
+.card-text {
+  text-align: center;
+}
+
+.card-image {
+  width: 100%;
+}
+
+.card-image img {
+  width: 100%;
+  height: 150px; /* added this line to make the image height common */
+  object-fit: contain; /* this will keep the aspect ratio of image */
+}
+
+marquee {
+  font-size: 30px; /* added font size */
+  color: rgb(0, 255, 208); /* added font color */
+  font-weight: bold; /* added font weight */
+  background-color: rgba(0, 0, 0, 0.986);
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+.show_modal {
+  margin: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px; /* set the height to cover full viewport */
+  margin-top: 32px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: rgb(255, 255, 255);
+  box-shadow: 2px 2px 10px rgb(54, 54, 54);
+  position: relative;
+}
+.show_modal .content table a {
+  text-decoration: none;
+  color: black;
+}
+.show_modal .content table a:hover {
+  color: rgba(3, 80, 181, 0.438);
+}
+
+.content {
+  width: 50%;
+}
+.cls_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  top: 5%;
+  right: 5%;
+  background-color: rgb(14, 16, 18);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  z-index: 100;
+}
+.hidden {
+  display: none !important;
+}
+.active {
+  background-color: rgba(20, 20, 20, 0.589) !important;
+  color: aliceblue;
+}
+
+/* gif */
+.gif {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 100px;
+  z-index: 10000;
+}
+
+.main {
+  height: 300px;
+  width: 300px;
+}
+.top:hover {
+  cursor: pointer;
+}
+
+.top {
+  position: absolute;
+  height: 160px;
+  width: 230px;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -53%);
+}
+
+/* added this media query to make the navigation bar responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap; /* allow the items to wrap to the next line */
+  }
+  .navbar-left,
+  .navbar-center,
+  .navbar-right {
+    flex: 100%; /* make the items take up the full width of the container */
+    text-align: center; /* center the text on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(
+      1,
+      1fr
+    ); /* change the number of columns on smaller screens */
+  }
+}
